@@ -1,11 +1,11 @@
 import express from 'express';
-import morgan from 'morgan'
+import morgan from 'morgan'; //Morgan is a HTTP request with predefined formats for logging, without morgan, the progress is not going to show in terminal
 import mongoose from 'mongoose'
 import dotenv from 'dotenv'
 import projectsRouter from './routes/projects.js'
-import cors from 'cors'
+import cors from 'cors' //connect backend with frontend in the same computer
 
-dotenv.config() //means to use .env file
+dotenv.config() //means to use .env file  config method takes a .env file path as an argument, it parses it and sets environment vars defined in that file in process.env
 const app=express()
 const PORT=process.env.PORT||4000;
 
@@ -15,6 +15,7 @@ try{await mongoose.connect(process.env.MONGODB_URI)
 }catch(error){
     console.error(error)
 }
+//check whether we can connect to MongoDB
 
 
 
